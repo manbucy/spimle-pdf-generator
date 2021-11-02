@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>hello world</h1>
+<div id="content"></div>
+</body>
+<script src="static/js/dist.js"></script>
+<script>
+    window.finish = false
+    window.onload = function () {
+        let content = document.getElementById("content");
+        let i = 0;
+        let timer = setInterval(() => {
+            let p = document.createElement('p');
+            p.append('' + i++);
+            content.appendChild(p);
+            if (i === 38) {
+                window.finish = true
+            }
+            if (i === 100) {
+                clearInterval(timer);
+                window.finish = true;
+            }
+        }, 100)
+    }
+    function getFinishFlag() {
+        return window.finish;
+    }
+</script>
+</html>
